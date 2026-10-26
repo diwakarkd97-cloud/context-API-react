@@ -1,16 +1,24 @@
-# React + Vite
+# React Context API Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A clean, responsive React application demonstrating global state management using the **React Context API**. This project illustrates how to effectively avoid "prop drilling" by managing state at the top level and consuming it directly inside nested child components.
 
-Currently, two official plugins are available:
+##  Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Global State Management:** Uses `createContext` and `useContext` to manage a global counter.
+* **No Prop Drilling:** The `Card` component remains a pure UI component, unaware of the counting logic, while the deeply nested `Button` interacts directly with the global state.
+* **Component-Based Architecture:** Clean separation of concerns across `App`, `Card`, and `Button` components.
+* **Responsive Design:** A mobile-first CSS approach using Flexbox, media queries, and modern hover/active states.
 
-## React Compiler
+##  Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```text
+src/
+├── component/
+│   ├── card/
+│   │   └── Card.jsx       # Presentational component for user details
+│   └── button/
+│       └── Button.jsx     # Consumer component that updates global state
+├── App.jsx                # Main container and Context Provider
+├── App.css                # Global styles and responsive layouts
+├── Context.js             # Context initialization
+└── main.jsx               # React entry point
